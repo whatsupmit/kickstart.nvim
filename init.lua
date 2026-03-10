@@ -920,9 +920,9 @@ require('lazy').setup({
  --        -- vim.cmd.colorscheme("synthweave-transparent")
  --    end
  --  -- },
-  -- -- { 
-  --   'catppuccin/nvim', 
-  --   name = 'catppuccin', 
+  -- -- {
+  --   'catppuccin/nvim',
+  --   name = 'catppuccin',
   --   priority = 1000,
   --   config = function()
   --     vim.cmd.colorscheme 'catppuccin'
@@ -979,7 +979,13 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
-
+  {
+    "RRethy/nvim-base16",
+    priority = 1000,
+    config = function()
+      vim.cmd("colorscheme base16-gruvbox-dark-hard")
+    end,
+  },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -1096,7 +1102,7 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
--- 
+--
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   command = [[%s/\s\+$//e]],
